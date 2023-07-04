@@ -4,7 +4,9 @@ import cors from "cors"
 import mongoose from "mongoose"
 import http from "http"
 import router from "./routes/index.js";
+import dotenv from "dotenv"
 
+dotenv.config()
 
 //middlewares
 const app = express();
@@ -21,7 +23,7 @@ server.listen(8000, ()=>{
 })
 
 //mongoconfig
-const mongoUrl = 'mongodb+srv://walobwadan:be3phiqXw2CQ1wwr@cluster0.t40xauj.mongodb.net/?retryWrites=true&w=majority'
+const mongoUrl = process.env.MONGO_URL
 mongoose.connect(mongoUrl)
 .then(()=>{console.log('MongoDB connected')})
 .catch((err)=>{console.log(err)})
