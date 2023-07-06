@@ -1,10 +1,12 @@
 //imports
-import express from "express";
-import cors from "cors"
-import mongoose from "mongoose"
-import http from "http"
-import router from "./routes/index.js";
-import dotenv from "dotenv"
+import express from "express"; //node framework for building APIs
+import cors from "cors" //middleware for our application
+import mongoose from "mongoose" //ORM-> Allows you interact with MongoDB
+import http from "http" //creating server
+import dotenv from "dotenv" //enables us to access the .env file
+
+//file imports
+import router from "./routes/index.js";  //definition of routes
 
 dotenv.config()
 
@@ -25,8 +27,12 @@ server.listen(8000, ()=>{
 //mongoconfig
 const mongoUrl = process.env.MONGO_URL
 mongoose.connect(mongoUrl)
-.then(()=>{console.log('MongoDB connected')})
-.catch((err)=>{console.log(err)})
+.then(()=>{
+        console.log('MongoDB connected')
+    })
+.catch((err)=>{
+    console.log(err)
+})
 
 
 app.use('/', router)

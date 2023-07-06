@@ -1,6 +1,7 @@
 import { getBooks, createBook, updateBook, deleteBook } from "../db/index.js"
 
 
+//Allows us to retrieve every information from db, and send the results as response
 const getAllBooks = async (req, res)=>{
     try {
         const allBooks = await getBooks()
